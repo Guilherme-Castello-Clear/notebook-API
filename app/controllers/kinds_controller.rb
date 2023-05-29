@@ -49,3 +49,17 @@ class KindsController < ApplicationController
       params.require(:kind).permit(:description)
     end
 end
+
+
+
+
+{"data" => {
+    "id" => "6",
+    "type" => "contacts",
+    "attributes" => {
+        "name" => "Dr. Arthur Henrique Barata",
+        "email" => "lexie_gutmann@grant-mayert.test",
+        "birthdate" => "1973-04-16T00:00:00-03:00"
+    }
+  }
+}

@@ -9,6 +9,7 @@ gem 'rack-cors'
 gem 'active_model_serializers', '~> 0.10.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'foreman'
 gem 'rails-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

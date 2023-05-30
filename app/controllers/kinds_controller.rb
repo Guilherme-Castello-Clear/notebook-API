@@ -1,5 +1,5 @@
 class KindsController < ApplicationController
-  before_action :set_kind, only: [:show, :update, :destroy]
+  before_action :set_kind, only: [:show, :update, :destroy, :get]
 
   # GET /kinds
   def index
@@ -41,7 +41,13 @@ class KindsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_kind
-      @kind = Kind.find(params[:id])
+
+      if params[:contact_id]
+        kind_id = Contact.find(params[:contact_id])
+      else
+        kind_id = Kind.find(params[:id])
+      end
+      @kind = Kind.find(kind_id.id)
     end
 
     # Only allow a trusted parameter "white list" through.
@@ -49,17 +55,3 @@ class KindsController < ApplicationController
       params.require(:kind).permit(:description)
     end
 end
-
-
-
-
-{"data" => {
-    "id" => "6",
-    "type" => "contacts",
-    "attributes" => {
-        "name" => "Dr. Arthur Henrique Barata",
-        "email" => "lexie_gutmann@grant-mayert.test",
-        "birthdate" => "1973-04-16T00:00:00-03:00"
-    }
-  }
-}

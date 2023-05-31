@@ -6,7 +6,11 @@ module V2
     def index
 
       @contacts = Contact.last(5)
-      render json: @contacts #, methods: [:birthdate_br]
+      
+      
+      if stale?(etag: @contacts)      
+        render json: @contacts #, methods: [:birthdate_br]
+      end
     end
 
     # GET /contacts/1

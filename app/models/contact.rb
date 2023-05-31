@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+
+    paginates_per 5
     before_destroy :destroy_phones
     before_destroy :destroy_addresses
 

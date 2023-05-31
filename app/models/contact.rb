@@ -1,5 +1,9 @@
 class Contact < ApplicationRecord
 
+    validates_presence_of :kind
+    validates_presence_of :address
+
+
     paginates_per 5
     before_destroy :destroy_phones
     before_destroy :destroy_addresses

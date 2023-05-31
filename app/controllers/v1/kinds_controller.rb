@@ -1,4 +1,4 @@
-module V2
+module V1
   class KindsController < ApplicationController
     before_action :authenticate_user!
     #include ActionController::HttpAuthentication::Basic::ControllerMethods

@@ -14,6 +14,7 @@ gem 'jwt'
 gem 'devise_token_auth'
 gem 'foreman'
 gem 'rails-i18n'
+gem 'versionist', '~> 1.5.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

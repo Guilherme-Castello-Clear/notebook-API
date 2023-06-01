@@ -1,5 +1,14 @@
 require 'rails_helper'
 
+class Hash
+    def json(parts)
+        ary = parts.split(">")
+        ary.reduce(self) do |memo, key|
+            memo.fetch(key.to_s.strip) if memo
+        end
+    end
+end
+
 describe V1::ContactsController, type: :controller do
     
     it 'request index and return 460 - NOT ACCEPTABLE' do
@@ -21,7 +30,9 @@ describe V1::ContactsController, type: :controller do
 
         response_body = JSON.parse(response.body)
         
-        expect(response_body.fetch('data').fetch('id')).to eq(contact.id.to_s)
-        expect(response_body.fetch('data').fetch('type')).to eq('contacts')
+
+        
+        expect(response_body.json('data > id')).to eq(contact.id.to_s)
+        expect(response_body.json('data > type')).to eq('contacts')
     end
 end
